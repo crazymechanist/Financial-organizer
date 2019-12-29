@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Uzytkownik {
+class User {
     int id;
     string login;
     string password;
@@ -13,6 +13,7 @@ class Uzytkownik {
     string surname;
 
 public:
+    User(int=1,string="JK",string="admin1",string="Jan",string="Kowalski");
     void setId(int newId);
     void setLogin(string newLogin);
     void setPassword(string newPassword);

@@ -1,13 +1,21 @@
 #include "User.h"
 
+User::User(int id,string login,string password,string name,string surname ){
+    this->id=id;
+    this->login=login;
+    this->password=password;
+    this->name=name;
+    this->surname=surname;
+};
+
 void User::setId(int newId) {
-    if (noweId >= 0) {
+    if (newId >= 0) {
         id = newId;
     }
 }
 
 void User::setLogin(string newLogin) {
-    login = nowyLogin;
+    login = newLogin;
 }
 void User::setPassword(string newPassword) {
     password=newPassword;
