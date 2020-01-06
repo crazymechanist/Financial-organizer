@@ -69,4 +69,22 @@ vector<int> AuxiliaryMethods::stringArrToIntArrConv (vector<string> numbers) {
     return intNumbers;
 }
 
+char AuxiliaryMethods::loadChar(){
+    string input = "";
+    char character  = {0};
+
+    while (true)
+    {
+        getline(cin, input);
+
+        if (input.length() == 1)
+        {
+            character = input[0];
+            break;
+        }
+        cout << "To nie jest pojedynczy znak. Wpisz ponownie." << endl;
+    }
+    return character;
+}
+
 

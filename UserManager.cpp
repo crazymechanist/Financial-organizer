@@ -96,6 +96,11 @@ void UserManager::changePasswordOfLogInUser() {
     }
 //    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
+
+int UserManager::getIdOfLogInUser(){
+return idOfLogInUser;
+}
+
 //
 //int UzykownikMenager::zwrocIdZalogowanegoUzytkownika() {
 //    return idZalogowanegoUzytkownika;

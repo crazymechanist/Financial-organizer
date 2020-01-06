@@ -3,27 +3,17 @@
 #include "Date.h"
 #include "User.h"
 #include "UserManager.h"
+#include "FinancialOrganizer.h"
 
 
 using namespace std;
 
-int main()
-{
-UserManager userManager;
-
-userManager.registerUser();
-
-userManager.logInUser();
-
-userManager.changePasswordOfLogInUser();
-
-userManager.logOutUser();
-
-userManager.logInUser();
-
-
-
-
+int main() {
+    FinancialOrganizer financialOrganizer;
+//zapis do pliku i wczytanie
+    while(1) {
+        financialOrganizer.mainMenu();
+    }
 
     return 0;
 }

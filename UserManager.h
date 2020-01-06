@@ -24,18 +24,16 @@ class UserManager
     bool isTheUserExist(string login);
 
     public:
-//    UserManager(string nazwaPlikuZUzytkownikami): plikZUzytkownikami(nazwaPlikuZUzytkownikami) {
+    UserManager() {
 //    uzytkownicy=plikZUzytkownikami.wczytajUzytkownikowZPliku();
-//    idZalogowanegoUzytkownika=0;
-//    }
+    idOfLogInUser=0;
+    }
+    int getIdOfLogInUser();
     void registerUser();
     void logOutUser();
     void logInUser();
     void  changePasswordOfLogInUser();
-//    void wypiszWszystkichUzytkownkow();
 
-
-//    int zwrocIdZalogowanegoUzytkownika();
 };
 
 #endif
