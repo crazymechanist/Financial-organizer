@@ -5,7 +5,7 @@ Date::Date(string date):MIN_POSSIBLE_YEAR(MIN) {
     if (date=="today" || date=="Today"|| date=="TODAY") {
         setTodayDate();
     } else {
-        setDate(date);
+        setDate(date);// in format: "2000-01-31"
     }
 }
 
