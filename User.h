@@ -20,7 +20,6 @@ public:
     void setName(string newName);
     void setSurname(string newSurname);
 
-
     int getId();
     string getLogin();
     string getPassword();

@@ -12,6 +12,7 @@ using namespace std;
 class AuxiliaryMethods {
 public:
 static int loadInteger();
+static float loadFloat();
 static char loadChar();
 static string loadLine();
 static int stringToIntConv (string number);

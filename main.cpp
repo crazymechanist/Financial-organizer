@@ -1,28 +1,36 @@
 #include <iostream>
+#include <vector>
 #include "FinancialOrganizer.h"
 #include "ExpensesDataFile.h"
 #include "DataFile.h"
 #include "MoneyFlow.h"
+#include "Income.h"
+
 
 
 using namespace std;
 
-//int main() {
-//    FinancialOrganizer financialOrganizer;
-//
-//    while(1) {
-//        financialOrganizer.mainMenu();
-//    }
-//
-//    return 0;
-//}
 
 int main() {
-    MoneyFlow moneyFlow1("Bla bla",100.23,"2000-11-11");
-    moneyFlow1.printMoneyFlow();
-    MoneyFlow moneyFlow2("Bla bla2",200.23,"2000-11-11");
-    moneyFlow2.printMoneyFlow();
-    MoneyFlow moneyFlow3("Bla bla3",300.23);
-    moneyFlow3.printMoneyFlow();
+    Income income(2);
+    income.printMoneyFlow();
+    income.editIncome();
+    income.printMoneyFlow();
+
+//    DataFile dataFile("ALA.xml");
+//    vector<DataFile::Abecadlo> abcs;
+//    int j=10;
+//    for(int i=0; i<10; i++) {
+//        DataFile::Abecadlo abc1;
+//        abc1.a=j++;
+//        abc1.b=j++;
+//        abc1.c=j++;
+//        abcs.push_back(abc1);
+//    }
+//    dataFile.metaSaveData(abcs);
+
     return 0;
 }
+
+
+

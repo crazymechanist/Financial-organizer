@@ -1,12 +1,25 @@
 #include "AuxiliaryMethods.h"
 
-int AuxiliaryMethods::loadInteger()
-{
+float AuxiliaryMethods::loadFloat() {
+    string input = "";
+    float number = 0;
+
+    while (true) {
+        getline(cin, input);
+
+        stringstream myStream(input);
+        if (myStream >> number)
+            break;
+        cout << "To nie jest liczba. Wpisz ponownie. " << endl;
+    }
+    return number;
+}
+
+int AuxiliaryMethods::loadInteger() {
     string input = "";
     int number = 0;
 
-    while (true)
-    {
+    while (true) {
         getline(cin, input);
 
         stringstream myStream(input);
@@ -37,7 +50,7 @@ string AuxiliaryMethods::loadLine() {
     return input;
 }
 
-int AuxiliaryMethods::coutAStringOccurInBString(string lookForString, string baseString){
+int AuxiliaryMethods::coutAStringOccurInBString(string lookForString, string baseString) {
     int occurenceAmount=0;
     size_t position = baseString.find(lookForString);
     while (position!=string::npos) {
@@ -63,22 +76,20 @@ vector<string> AuxiliaryMethods::parsingString(string baseString, string delimit
 
 vector<int> AuxiliaryMethods::stringArrToIntArrConv (vector<string> numbers) {
     vector<int> intNumbers;
-    for(int i=0;i<numbers.size(); i++) {
+    for(int i=0; i<numbers.size(); i++) {
         intNumbers.push_back(stringToIntConv(numbers[i]));
     }
     return intNumbers;
 }
 
-char AuxiliaryMethods::loadChar(){
+char AuxiliaryMethods::loadChar() {
     string input = "";
     char character  = {0};
 
-    while (true)
-    {
+    while (true) {
         getline(cin, input);
 
-        if (input.length() == 1)
-        {
+        if (input.length() == 1) {
             character = input[0];
             break;
         }

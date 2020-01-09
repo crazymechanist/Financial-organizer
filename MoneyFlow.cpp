@@ -1,8 +1,9 @@
 #include "MoneyFlow.h"
 
-MoneyFlow::MoneyFlow(string destription,float amountOfMoney,string date):date(date) {
+MoneyFlow::MoneyFlow(int id,string destription,float amountOfMoney,string date):date(date) {
     setAmountOfMoney(amountOfMoney);
     setDescription(destription);
+    setId(id);
 }
 
 
@@ -25,6 +26,10 @@ void MoneyFlow::setAmountOfMoney(float amountOfMoney) {
 
 void MoneyFlow::setDescription(string description) {
     this->description=description;
+}
+
+void MoneyFlow::setId(int id) {
+    this->id=id;
 }
 
 void MoneyFlow::printMoneyFlow() {
