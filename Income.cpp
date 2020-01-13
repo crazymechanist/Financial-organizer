@@ -40,34 +40,8 @@ void Income::chooseDescrition() {
     }
 }
 
-void Income::chooseDate() {
-    while(1) {
-        cout<<endl<<"Czy chcesz zmienic date? ("<<date.getDate()<<") (T/N)"<<endl;
-        char choice=AuxiliaryMethods::loadChar();
-        switch (choice) {
-        case 'T':
-            cout<<endl<<"Podaj date w formacie RRRR-MM-DD: ";
-            while(!date.setDate(AuxiliaryMethods::loadLine()))        {
-                cout<<endl<<"Podaj date w poprawnym formacie RRRR-MM-DD:";
-            }
-            return;
-            break;
-        case 'N':
-            return;
-            break;
-        default:
-            cout << endl << "Nie ma takiej opcji w menu." << endl;
-            system("pause");
-            break;
-        }
-    }
-}
-
 void Income::editIncome() {
     chooseDescrition();
-
-    cout<<endl<<"Kwota: ";
-    setAmountOfMoney(AuxiliaryMethods::loadFloat());
-
-    chooseDate();
+    changeAmountOfMoney();
+    changeDate();
 }

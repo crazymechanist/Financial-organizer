@@ -10,15 +10,15 @@
 using namespace std;
 
 class DataFile {
+    const string FILENAME;
+protected:
     string childNodeName;
     string parentNodeName;
     vector<string> secondChildNodesNames;
-    const string FILENAME;
     void addSecondChildNodesNames(string name);
-
 public:
-    void loadData();
-    void saveData(vector<string> &sample);
+    vector<vector<string>> loadData();
+    void saveData(vector<vector<string>> &sample);
     DataFile(string filename);
 };
 

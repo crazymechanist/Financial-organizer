@@ -1,0 +1,32 @@
+<expenses>
+<expense>
+<id>1</id>
+<description>Zakupy jedzenie</description>
+<amount>200</amount>
+<date>2020-1-14</date>
+</expense>
+<expense>
+<id>2</id>
+<description>Transport</description>
+<amount>300.123</amount>
+<date>2019-12-31</date>
+</expense>
+<expense>
+<id>3</id>
+<description>Rachunek za pr¹d</description>
+<amount>500.423</amount>
+<date>2019-12-14</date>
+</expense>
+<expense>
+<id>4</id>
+<description>Rachunek za mieszkanie</description>
+<amount>450.424</amount>
+<date>2019-12-12</date>
+</expense>
+<expense>
+<id>5</id>
+<description>Rachunek za telefon</description>
+<amount>600.312</amount>
+<date>2019-12-16</date>
+</expense>
+</expenses>
