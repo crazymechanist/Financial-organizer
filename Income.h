@@ -10,7 +10,6 @@ using namespace std;
 
 class Income:public MoneyFlow {
 void chooseDescrition();
-void chooseDate();
 public:
 void editIncome();
 Income(int=0);

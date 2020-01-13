@@ -3,10 +3,11 @@
 float AuxiliaryMethods::loadFloat() {
     string input = "";
     float number = 0;
-
     while (true) {
         getline(cin, input);
-
+        size_t position = input.find(",");
+        if (position!=string::npos)
+            input.replace(position,1,".");
         stringstream myStream(input);
         if (myStream >> number)
             break;
@@ -30,7 +31,17 @@ int AuxiliaryMethods::loadInteger() {
     return number;
 }
 
-int AuxiliaryMethods::stringToIntConv (string number) {
+float AuxiliaryMethods::stringToFloatConv(string number) {
+    float numberFloat;
+    size_t position = number.find(",");
+    if (position!=string::npos)
+        number.replace(position,1,".");
+    stringstream myStream(number);
+    myStream >> numberFloat;
+    return numberFloat;
+}
+
+int AuxiliaryMethods::stringToIntConv(string number) {
     int numberInt;
     stringstream myStream(number);
     myStream >> numberInt;
@@ -38,6 +49,13 @@ int AuxiliaryMethods::stringToIntConv (string number) {
 }
 
 string AuxiliaryMethods::intToStringConv(int number) {
+    ostringstream ss;
+    ss << number;
+    string str = ss.str();
+    return str;
+}
+
+string AuxiliaryMethods::floatToStringConv(float number) {
     ostringstream ss;
     ss << number;
     string str = ss.str();

@@ -112,7 +112,7 @@ Date& Date::operator-- () {
     return *this;
 }
 
-Date& Date::operator= (const Date &d1){
+Date& Date::operator= (const Date &d1) {
     year=d1.year;
     month=d1.month;
     day=d1.day;
@@ -135,6 +135,7 @@ string Date::getDate() const {
 bool Date::setDate(string date) {
     if(isDateSyntaxCorrrect(date)) {
         vector<int> dateArr=parsingDate(date);
+
         if(areValuesCorrect(dateArr) ) {
             this->year=dateArr[0];
             this->month=dateArr[1];
@@ -143,6 +144,8 @@ bool Date::setDate(string date) {
         } else {
             return false;
         }
+    } else if  (date=="") {
+        return true;
     } else {
         return false;
     }
@@ -167,7 +170,7 @@ bool Date::setDate() {
 }
 
 bool Date::setDate(int days) {
-    if(days<0){
+    if(days<0) {
         return false;
     }
     int month=1;

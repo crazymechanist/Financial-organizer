@@ -17,10 +17,11 @@ static char loadChar();
 static string loadLine();
 static int stringToIntConv (string number);
 static string intToStringConv(int number);
+static string floatToStringConv(float number);
+static float stringToFloatConv(string number);
 static int coutAStringOccurInBString(string lookForString, string BaseString);
 static vector<string> parsingString(string baseString, string delimiter);
 static vector<int> stringArrToIntArrConv (vector<string> numbers);
-
 };
 
 #endif

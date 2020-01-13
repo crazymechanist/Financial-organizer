@@ -2,35 +2,20 @@
 #include <vector>
 #include "FinancialOrganizer.h"
 #include "ExpensesDataFile.h"
-#include "DataFile.h"
-#include "MoneyFlow.h"
-#include "Income.h"
-
-
 
 using namespace std;
 
-
 int main() {
-    Income income(2);
-    income.printMoneyFlow();
-    income.editIncome();
-    income.printMoneyFlow();
-
-//    DataFile dataFile("ALA.xml");
-//    vector<DataFile::Abecadlo> abcs;
-//    int j=10;
-//    for(int i=0; i<10; i++) {
-//        DataFile::Abecadlo abc1;
-//        abc1.a=j++;
-//        abc1.b=j++;
-//        abc1.c=j++;
-//        abcs.push_back(abc1);
+    MoneyFlowManager moneyFlowManager;
+//    ifstream in("in.txt");
+//    streambuf *cinbuf = cin.rdbuf(); //save old buf
+//    cin.rdbuf(in.rdbuf()); //redirect cin to in.txt!
+//    for(int i=0; i<5; i++) {
+//        moneyFlowManager.addExpense();
 //    }
-//    dataFile.metaSaveData(abcs);
-
+//    cin.rdbuf(cinbuf); //reset to standard input again
+//    moneyFlowManager.saveData();
+    moneyFlowManager.loadData();
     return 0;
 }
-
-
 
