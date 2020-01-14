@@ -14,6 +14,7 @@ class User {
 
 public:
     User(int=1,string="JK",string="admin1",string="Jan",string="Kowalski");
+    void edit(int id,string login,string password,string name,string surname);
     void setId(int newId);
     void setLogin(string newLogin);
     void setPassword(string newPassword);

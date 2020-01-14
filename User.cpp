@@ -8,6 +8,14 @@ User::User(int id,string login,string password,string name,string surname ){
     this->surname=surname;
 };
 
+void User::edit(int id,string login,string password,string name,string surname){
+    this->id=id;
+    this->login=login;
+    this->password=password;
+    this->name=name;
+    this->surname=surname;
+};
+
 void User::setId(int newId) {
     if (newId >= 0) {
         id = newId;
