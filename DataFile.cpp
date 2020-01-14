@@ -9,6 +9,10 @@ void DataFile::addSecondChildNodesNames(string name) {
     secondChildNodesNames.push_back(name);
 }
 
+void DataFile::addToVector(vector<string> &fields,string fieldData) {
+    fields.push_back(fieldData);
+}
+
 vector<vector<string>> DataFile::loadData() {
     CMarkup xml;
     xml.Load(FILENAME);
@@ -28,13 +32,13 @@ vector<vector<string>> DataFile::loadData() {
 }
 
 void DataFile::saveData(vector<vector<string>> &data) {
-    if(secondChildNodesNames.size()==data.size()) {
+    if(secondChildNodesNames.size()==data[0].size()) {
         CMarkup xml;
         xml.AddElem(parentNodeName);
         for(int i=0; i<data.size(); i++)  {
             xml.AddChildElem(childNodeName);
             xml.IntoElem();
-            for(int j=0; j<data[j].size(); j++)  {
+            for(int j=0; j<data[0].size(); j++)  {
                 xml.AddChildElem(secondChildNodesNames[j],data[i][j]);
             }
             xml.OutOfElem();

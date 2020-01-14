@@ -9,6 +9,7 @@
 
 #include "User.h"
 #include "AuxiliaryMethods.h"
+#include "UsersDataFile.h"
 
 
 using namespace std;

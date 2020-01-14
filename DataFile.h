@@ -12,6 +12,7 @@ using namespace std;
 class DataFile {
     const string FILENAME;
 protected:
+    void addToVector(vector<string> &fields,string fieldData);
     string childNodeName;
     string parentNodeName;
     vector<string> secondChildNodesNames;
