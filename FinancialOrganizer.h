@@ -9,11 +9,11 @@
 
 using namespace std;
 
-class FinancialOrganizer{
+class FinancialOrganizer {
     UserManager userManager;
     MoneyFlowManager *moneyFlowManager;
 public:
-
+    FinancialOrganizer();
     void registerUser();
     void logOutUser();
     void logInUser();

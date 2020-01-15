@@ -18,8 +18,12 @@ protected:
     vector<string> secondChildNodesNames;
     void addSecondChildNodesNames(string name);
 public:
+
     vector<vector<string>> loadData();
     void saveData(vector<vector<string>> &sample);
+    void addData(vector<string> &data);
+    void deleteData (vector<string> &data);
+    void editData (vector<string> &data);
     DataFile(string filename);
 };
 

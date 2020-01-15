@@ -18,17 +18,13 @@ class UserManager
 {
     int idOfLogInUser;
     vector <User> users;
-//    PlikZUzytkownikami plikZUzytkownikami;
-
+    UsersDataFile usersDataFile;
     User giveNewUserData();
     int getIdOfNewUser();
     bool isTheUserExist(string login);
 
     public:
-    UserManager() {
-//    uzytkownicy=plikZUzytkownikami.wczytajUzytkownikowZPliku();
-    idOfLogInUser=0;
-    }
+    UserManager();
     int getIdOfLogInUser();
     void registerUser();
     void logOutUser();

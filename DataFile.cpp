@@ -47,5 +47,26 @@ void DataFile::saveData(vector<vector<string>> &data) {
     }
 }
 
+void DataFile::addData(vector<string> &data) {
+    CMarkup xml;
+    xml.Load(FILENAME);
+    int iter=0;
+    while ( xml.FindChildElem(childNodeName) ) {
+        iter++;
+    }
+    xml.AddChildElem(childNodeName);
+    xml.IntoElem();
+    for(int j=0; j<data.size(); j++)  {
+        xml.AddChildElem(secondChildNodesNames[j],data[j]);
+    }
+    xml.OutOfElem();
+    xml.Save(FILENAME);
+}
+
+void DataFile::deleteData (vector<string> &data) {
+}
+
+void DataFile::editData (vector<string> &data) {
+}
 
 

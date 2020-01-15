@@ -1,5 +1,10 @@
 #include "UserManager.h"
 
+UserManager::UserManager():usersDataFile("users.xml"){
+    users=usersDataFile.loadData();
+    idOfLogInUser=0;
+}
+
 void UserManager::registerUser() {
     cout<<"REJESTRACJA UZYTKOWNIKA\n________________________\n\n";
     int id=getIdOfNewUser();
@@ -101,24 +106,6 @@ int UserManager::getIdOfLogInUser(){
 return idOfLogInUser;
 }
 
-//
-//int UzykownikMenager::zwrocIdZalogowanegoUzytkownika() {
-//    return idZalogowanegoUzytkownika;
-//}
-
-
-//void UzykownikMenager::wypiszWszystkichUzytkownkow() {
-//    for (int i=0; i<uzytkownicy.size(); i++) {
-//        cout <<uzytkownicy[i].pobierzId() << endl;
-//        cout <<uzytkownicy[i].pobierzLogin() << endl;
-//        cout <<uzytkownicy[i].pobierzHaslo() << endl;
-//    }
-//}
-//
-//
-//
-
-//
 
 
 

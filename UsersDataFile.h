@@ -13,6 +13,7 @@ public:
     UsersDataFile(string UsersDataFileName);
     vector<User> loadData();
     void saveData(vector <User> &expenses);
+    void addData(User &user);
 };
 
 #endif
