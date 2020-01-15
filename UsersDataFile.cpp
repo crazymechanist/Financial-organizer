@@ -26,29 +26,42 @@ vector<User> UsersDataFile::loadData() {
     return users;
 }
 
+vector <string> UsersDataFile::dataToVector(User &user) {
+    vector<string> vec;
+    addToVector(vec,AuxiliaryMethods::intToStringConv(user.getId()));
+    addToVector(vec,user.getLogin());
+    addToVector(vec,user.getPassword());
+    addToVector(vec,user.getName());
+    addToVector(vec,user.getSurname());
+    return vec;
+}
+
 void UsersDataFile::saveData(vector <User> &users) {
     vector <vector<string>> data;
     for(int i=0; i<users.size(); i++) {
-        vector<string> fields;
-        addToVector(fields,AuxiliaryMethods::intToStringConv(users[i].getId()));
-        addToVector(fields,users[i].getLogin());
-        addToVector(fields,users[i].getPassword());
-        addToVector(fields,users[i].getName());
-        addToVector(fields,users[i].getSurname());
+        vector<string> fields=dataToVector(users[i]);
         data.push_back(fields);
     }
     DataFile::saveData(data);
 }
 
 void UsersDataFile::addData(User &user) {
-    vector<string> data;
-    addToVector(data,AuxiliaryMethods::intToStringConv(user.getId()));
-    addToVector(data,user.getLogin());
-    addToVector(data,user.getPassword());
-    addToVector(data,user.getName());
-    addToVector(data,user.getSurname());
+    vector<string> fields=dataToVector(user);
+    DataFile::addData(fields);
+}
 
-    DataFile::addData(data);
+bool UsersDataFile::deleteData(User &user) {
+    bool isTheOperationGood=false;
+    vector<string> fields=dataToVector(user);
+    isTheOperationGood=DataFile::deleteData(fields);
+    return isTheOperationGood;
+}
+
+bool UsersDataFile::editData (User &editedUser) {
+    bool isTheOperationGood=false;
+    vector<string> fields=dataToVector(editedUser);
+    isTheOperationGood=DataFile::editData(fields,0);
+    return isTheOperationGood;
 }
 
 
