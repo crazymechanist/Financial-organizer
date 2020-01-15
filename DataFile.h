@@ -15,15 +15,15 @@ protected:
     void addToVector(vector<string> &fields,string fieldData);
     string childNodeName;
     string parentNodeName;
-    vector<string> secondChildNodesNames;
+    vector <string> secondChildNodesNames;
     void addSecondChildNodesNames(string name);
 public:
 
     vector<vector<string>> loadData();
     void saveData(vector<vector<string>> &sample);
     void addData(vector<string> &data);
-    void deleteData (vector<string> &data);
-    void editData (vector<string> &data);
+    bool deleteData (vector<string> &data);
+    bool editData (vector<string> &editedElem, int indexingElement);
     DataFile(string filename);
 };
 

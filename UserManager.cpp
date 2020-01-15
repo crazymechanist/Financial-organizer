@@ -1,6 +1,6 @@
 #include "UserManager.h"
 
-UserManager::UserManager():usersDataFile("users.xml"){
+UserManager::UserManager():usersDataFile("users.xml") {
     users=usersDataFile.loadData();
     idOfLogInUser=0;
 }
@@ -19,7 +19,7 @@ void UserManager::registerUser() {
     surname=AuxiliaryMethods::loadLine();
     User user(id,login,password,name,surname);
     users.push_back(user);
-//    plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
+    usersDataFile.addData(user);
     cout << endl << "Konto zalozono pomyslnie" << endl << endl;
     system("pause");
     system("cls");
@@ -102,8 +102,8 @@ void UserManager::changePasswordOfLogInUser() {
 //    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
 
-int UserManager::getIdOfLogInUser(){
-return idOfLogInUser;
+int UserManager::getIdOfLogInUser() {
+    return idOfLogInUser;
 }
 
 

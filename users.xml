@@ -1,16 +1,16 @@
 <users>
 <user>
 <id>1</id>
-<login>ala</login>
-<password>ala1</password>
-<name>Alicja</name>
-<surname>Z Krainy Czarow</surname>
+<login>Korwin</login>
+<password>Mikke</password>
+<name>Janusz</name>
+<surname>Krol</surname>
 </user>
 <user>
 <id>2</id>
-<login>tomek</login>
-<password>tomek1</password>
-<name>Tomasz</name>
-<surname>Wilmowski</surname>
+<login>Korwin</login>
+<password>Mikke</password>
+<name>Janusz</name>
+<surname>Krol</surname>
 </user>
 </users>

@@ -63,10 +63,73 @@ void DataFile::addData(vector<string> &data) {
     xml.Save(FILENAME);
 }
 
-void DataFile::deleteData (vector<string> &data) {
+bool DataFile::deleteData (vector<string> &deletedElem) {
+    CMarkup oldXml,newXml;
+    bool isTheOperationGood=false;
+    oldXml.Load(FILENAME);
+    newXml.AddElem(parentNodeName);
+    while ( oldXml.FindChildElem(childNodeName) ) {
+        vector<string> elem;
+        oldXml.IntoElem();
+        for(int i=0; i<secondChildNodesNames.size(); i++) {
+            oldXml.FindChildElem(secondChildNodesNames[i]);
+            string field= oldXml.GetChildData();
+            elem.push_back(field);
+        }
+        oldXml.OutOfElem();
+        if(elem==deletedElem) {
+            isTheOperationGood=true;
+        } else {
+            newXml.AddChildElem(childNodeName);
+            newXml.IntoElem();
+            for(int i=0; i<secondChildNodesNames.size(); i++)  {
+                newXml.AddChildElem(secondChildNodesNames[i],elem[i]);
+            }
+            newXml.OutOfElem();
+        }
+    }
+    newXml.Save(FILENAME);
+    return isTheOperationGood;
 }
 
-void DataFile::editData (vector<string> &data) {
+bool DataFile::editData (vector<string> &editedElem, int indexingElement) {
+    if(editedElem.size()-1>=indexingElement) {
+        CMarkup oldXml,newXml;
+        bool isTheOperationGood=false;
+        oldXml.Load(FILENAME);
+        newXml.AddElem(parentNodeName);
+        while ( oldXml.FindChildElem(childNodeName) ) {
+            vector<string> elem;
+            oldXml.IntoElem();
+            for(int i=0; i<secondChildNodesNames.size(); i++) {
+                oldXml.FindChildElem(secondChildNodesNames[i]);
+                string field= oldXml.GetChildData();
+                elem.push_back(field);
+            }
+            oldXml.OutOfElem();
+            if(elem[indexingElement]==editedElem[indexingElement]) {
+                newXml.AddChildElem(childNodeName);
+                newXml.IntoElem();
+                for(int i=0; i<secondChildNodesNames.size(); i++)  {
+                    newXml.AddChildElem(secondChildNodesNames[i],editedElem[i]);
+                }
+                newXml.OutOfElem();
+                isTheOperationGood=true;
+            } else {
+                newXml.AddChildElem(childNodeName);
+                newXml.IntoElem();
+                for(int i=0; i<secondChildNodesNames.size(); i++)  {
+                    newXml.AddChildElem(secondChildNodesNames[i],elem[i]);
+                }
+                newXml.OutOfElem();
+            }
+        }
+        newXml.Save(FILENAME);
+        return isTheOperationGood;
+    } else {
+        return false;
+    }
+
 }
 
 
