@@ -6,14 +6,19 @@
 using namespace std;
 
 int main() {
-    vector<User> users;
-//    User tempUser(1, "ala", "ala1","Alicja","Z Krainy Czarow");
-//    users.push_back(tempUser);
-//    tempUser.edit(2, "tomek", "tomek1","Tomasz","Wilmowski");
-//    users.push_back(tempUser);
-    UsersDataFile usersDataFile("users.xml");
-//    usersDataFile.saveData(users);
-    users=usersDataFile.loadData();
+    FinancialOrganizer financialOrganizer;
+    while(1) {
+        financialOrganizer.mainMenu();
+    }
+
     return 0;
 }
 
+//int main() {
+//    User user;
+//    vector<User> users;
+//    UsersDataFile usersDataFile("users.xml");
+//    users=usersDataFile.loadData();
+//    usersDataFile.addData(user);
+//    return 0;
+//}

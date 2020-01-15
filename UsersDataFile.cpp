@@ -1,6 +1,6 @@
 #include "UsersDataFile.h"
 
-UsersDataFile::UsersDataFile(string UsersDataFileName):DataFile(UsersDataFileName) {
+UsersDataFile::UsersDataFile(string usersDataFileName):DataFile(usersDataFileName) {
     parentNodeName="users";
     childNodeName="user";
     addSecondChildNodesNames("id");
@@ -38,6 +38,17 @@ void UsersDataFile::saveData(vector <User> &users) {
         data.push_back(fields);
     }
     DataFile::saveData(data);
+}
+
+void UsersDataFile::addData(User &user) {
+    vector<string> data;
+    addToVector(data,AuxiliaryMethods::intToStringConv(user.getId()));
+    addToVector(data,user.getLogin());
+    addToVector(data,user.getPassword());
+    addToVector(data,user.getName());
+    addToVector(data,user.getSurname());
+
+    DataFile::addData(data);
 }
 
 

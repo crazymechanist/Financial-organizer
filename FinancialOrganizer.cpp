@@ -1,5 +1,9 @@
 #include "FinancialOrganizer.h"
 
+FinancialOrganizer::FinancialOrganizer() {
+}
+
+
 void FinancialOrganizer::registerUser() {
     userManager.registerUser();
 }
