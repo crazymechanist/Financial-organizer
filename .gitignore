@@ -1,5 +1,6 @@
 bin/
-
+expenses.xml
+users.xml
 obj/
 plany/
 z_ksiazki_adresowej/

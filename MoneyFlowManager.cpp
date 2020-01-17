@@ -1,7 +1,8 @@
 #include "MoneyFlowManager.h"
 
-MoneyFlowManager::MoneyFlowManager():lastIdIncomes(0), lastIdExpenses(0),expensesDataFile("expenses.xml") {
+MoneyFlowManager::MoneyFlowManager(int idOfLogInUser):ID_OF_LOG_IN_USER(idOfLogInUser),lastIdIncomes(0), lastIdExpenses(0),expensesDataFile("expenses.xml") {
     checkLastIds();
+    expenses=expensesDataFile.loadExpensesOfOneUser(idOfLogInUser);
 }
 
 void MoneyFlowManager::addIncome() {
@@ -21,11 +22,9 @@ void MoneyFlowManager::addExpense() {
 void MoneyFlowManager::checkLastIds() {
 //oddeleguj do pliku
 }
-
-void MoneyFlowManager::saveData() {
+void MoneyFlowManager::tempSave() {
     expensesDataFile.saveData(expenses);
 }
 
-void MoneyFlowManager::loadData() {
-    expenses=expensesDataFile.loadData();
-}
+
+

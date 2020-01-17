@@ -1,6 +1,6 @@
 #include "Expense.h"
 
-Expense::Expense(int id):MoneyFlow(id, "Przychod") {
+Expense::Expense(int id,int userId): MoneyFlow(id,userId, "Przychod") {
 
 }
 
@@ -12,6 +12,7 @@ void Expense::chooseDescrition() {
             <<"3. Rachunek za pr¹d"<<endl
             <<"4. Rachunek za mieszkanie"<<endl
             <<"5. Rachunek za telefon"<<endl
+
             <<"6. Jedzenie w restauracji"<<endl
             <<"9. Inny"<<endl
             <<"Wybor: ";

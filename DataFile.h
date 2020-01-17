@@ -17,13 +17,13 @@ protected:
     string parentNodeName;
     vector <string> secondChildNodesNames;
     void addSecondChildNodesNames(string name);
-public:
-
     vector<vector<string>> loadData();
+    vector<vector<string>> loadCertainData(int fieldNumber, string fieldContents);
     void saveData(vector<vector<string>> &sample);
     void addData(vector<string> &data);
     bool deleteData (vector<string> &data);
     bool editData (vector<string> &editedElem, int indexingElement);
+public:
     DataFile(string filename);
 };
 

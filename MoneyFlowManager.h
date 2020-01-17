@@ -10,6 +10,7 @@
 using namespace std;
 
 class MoneyFlowManager {
+    const int ID_OF_LOG_IN_USER;
     int lastIdIncomes;
     int lastIdExpenses;
     ExpensesDataFile expensesDataFile;
@@ -17,12 +18,10 @@ class MoneyFlowManager {
     vector <Expense> expenses;
     void checkLastIds();
 public:
-    MoneyFlowManager();
+    MoneyFlowManager(int=0);
     void addIncome();
     void addExpense();
-    void saveData();
-    void loadData();
-
+    void tempSave();
 };
 
 #endif

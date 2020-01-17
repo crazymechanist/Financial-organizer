@@ -31,6 +31,28 @@ vector<vector<string>> DataFile::loadData() {
     return data;
 }
 
+vector<vector<string>> DataFile::loadCertainData(int fieldNumber, string fieldContents) {
+    CMarkup xml;
+    xml.Load(FILENAME);
+    vector<vector<string>> data;
+    while ( xml.FindChildElem(childNodeName) ) {
+        vector<string> fields;
+        xml.IntoElem();
+        for(int i=0; i<secondChildNodesNames.size(); i++) {
+            xml.FindChildElem(secondChildNodesNames[i]);
+            string field= xml.GetChildData();
+            fields.push_back(field);
+        }
+        if (fieldNumber>0&&fieldNumber<=fields.size()) {
+            if(fieldContents==fields[fieldNumber-1]) {
+                data.push_back(fields);
+            }
+        }
+        xml.OutOfElem();
+    }
+    return data;
+}
+
 void DataFile::saveData(vector<vector<string>> &data) {
     if(secondChildNodesNames.size()==data[0].size()) {
         CMarkup xml;

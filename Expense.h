@@ -12,7 +12,7 @@ class Expense:public MoneyFlow {
 void chooseDescrition();
 public:
 void editExpense();
-Expense(int=0);
+Expense(int=0,int=0);
 };
 
 #endif

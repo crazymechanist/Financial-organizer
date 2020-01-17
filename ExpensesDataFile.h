@@ -9,11 +9,16 @@
 using namespace std;
 
 class ExpensesDataFile:public DataFile {
-    void addToVector(vector<string> &fields,string fieldData);
+    vector <string> dataToVector(Expense &expense);
+    vector <Expense> vectToData(vector<vector<string>> &data);
+    vector <Expense> loadAllExpenses();
 public:
     ExpensesDataFile(string ExpensesDataFileName);
-    vector<Expense> loadData();
+    vector<Expense> loadExpensesOfOneUser(int userId);
     void saveData(vector <Expense> &expenses);
+    void addData(Expense &expense);
+    bool deleteData (Expense &expense);
+    bool editData (Expense &editedExpense);
 };
 
 #endif

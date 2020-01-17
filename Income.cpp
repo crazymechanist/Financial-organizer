@@ -1,6 +1,6 @@
 #include "Income.h"
 
-Income::Income(int id):MoneyFlow(id, "Przychod") {
+Income::Income(int id,int userId): MoneyFlow(id,userId, "Przychod") {
 
 }
 
