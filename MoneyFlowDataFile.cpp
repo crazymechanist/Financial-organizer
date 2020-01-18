@@ -79,3 +79,16 @@ bool MoneyFlowDatafile::editData (MoneyFlow &editedMoneyFlow) {
     return isTheOperationGood;
 }
 
+int MoneyFlowDatafile::getLastMoneyFlowId() {
+    vector<string> fields;
+    fields=DataFile::loadCertainFields(0);
+    int lastId=0;
+    for(int i=0; i<fields.size(); i++) {
+        int currId=AuxiliaryMethods::stringToIntConv(fields[i]);
+        if(currId>lastId) {
+            lastId=currId;
+        }
+    }
+    return lastId;
+}
+

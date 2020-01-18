@@ -14,13 +14,13 @@ class MoneyFlowDatafile:public DataFile {
     vector <string> dataToVector(MoneyFlow &moneyFlows);
     vector <MoneyFlow> vectToData(vector<vector<string>> &data);
     vector <MoneyFlow> loadAllMoneyFlows();
+    bool deleteData (MoneyFlow &moneyFlow);
+    bool editData (MoneyFlow &editedMoneyFlow);
 public:
     MoneyFlowDatafile(string,string="moneyFlows",string="moneyFlow");
     vector<MoneyFlow> loadMoneyFlowsOfOneUser(int userId);
     void saveData(vector <MoneyFlow> &moneyFlows);
     void addData(MoneyFlow &moneyFlow);
-    bool deleteData (MoneyFlow &moneyFlow);
-    bool editData (MoneyFlow &editedMoneyFlow);
     void loadLastMoneyFlowId();
     int getLastMoneyFlowId();
 };

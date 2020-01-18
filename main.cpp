@@ -15,6 +15,7 @@ using namespace std;
 //}
 
 int main() {
-    MoneyFlowManager  moneyFlowManager(1);
+    MoneyFlowManager moneyFlowManager(1);
     return 0;
 }
+

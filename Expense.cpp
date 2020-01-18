@@ -46,6 +46,7 @@ void Expense::chooseDescrition() {
         case '9':
             cout<<"Podaj opis: ";
             setDescription(AuxiliaryMethods::loadLine());
+            return;
             break;
         default:
             cout << endl << "Nie ma takiej opcji w menu." << endl;

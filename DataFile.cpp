@@ -69,20 +69,40 @@ void DataFile::saveData(vector<vector<string>> &data) {
     }
 }
 
+bool DataFile::isTheFileEmpty() {
+    bool emptyF = true;
+    fstream file;
+    file.open(FILENAME.c_str(), ios::app);
+    if (file.good() == true) {
+        file.seekg(0, ios::end);
+        if (file.tellg() != 0)
+            emptyF = false;
+    }
+    file.close();
+    return emptyF;
+}
+
 void DataFile::addData(vector<string> &data) {
-    CMarkup xml;
-    xml.Load(FILENAME);
-    int iter=0;
-    while ( xml.FindChildElem(childNodeName) ) {
-        iter++;
+    if(!isTheFileEmpty()) {
+        CMarkup xml;
+        xml.Load(FILENAME);
+        int iter=0;
+        while ( xml.FindChildElem(childNodeName) ) {
+            iter++;
+        }
+        xml.AddChildElem(childNodeName);
+        xml.IntoElem();
+        for(int j=0; j<data.size(); j++)  {
+            xml.AddChildElem(secondChildNodesNames[j],data[j]);
+        }
+        xml.OutOfElem();
+        xml.Save(FILENAME);
+    } else {
+        vector<vector<string>> dataII;
+        dataII.push_back(data);
+        saveData(dataII);
     }
-    xml.AddChildElem(childNodeName);
-    xml.IntoElem();
-    for(int j=0; j<data.size(); j++)  {
-        xml.AddChildElem(secondChildNodesNames[j],data[j]);
-    }
-    xml.OutOfElem();
-    xml.Save(FILENAME);
+
 }
 
 bool DataFile::deleteData (vector<string> &deletedElem) {
@@ -154,4 +174,19 @@ bool DataFile::editData (vector<string> &editedElem, int indexingElement) {
 
 }
 
+vector<string> DataFile::loadCertainFields(int fieldNumber) {
+    vector<string> fields;
+    CMarkup xml;
+    xml.Load(FILENAME);
+    vector<vector<string>> data;
+    while ( xml.FindChildElem(childNodeName)) {
+        xml.IntoElem();
+        while ( xml.FindChildElem(secondChildNodesNames[fieldNumber])) {
+            string field= xml.GetChildData();
+            fields.push_back(field);
+        }
+        xml.OutOfElem();
+    }
+    return fields;
+}
 

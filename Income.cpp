@@ -30,6 +30,7 @@ void Income::chooseDescrition() {
         case '9':
             cout<<"Podaj opis: ";
             setDescription(AuxiliaryMethods::loadLine());
+            return;
             break;
         default:
             cout << endl << "Nie ma takiej opcji w menu." << endl;
@@ -44,4 +45,33 @@ void Income::editIncome() {
     chooseDescrition();
     changeAmountOfMoney();
     changeDate();
+}
+
+vector<Income> Income::convMoneyFlowsToIncomes(const vector<MoneyFlow> &moneyFlows) {
+    vector<Income> incomes;
+    for(int i=0; i<moneyFlows.size(); i++) {
+        Income tempIncome(0);
+        tempIncome=moneyFlows[i];
+        incomes.push_back(tempIncome);
+    }
+    return incomes;
+}
+
+vector<MoneyFlow> Income::convIncomesToMoneyFlows(const vector<Income> &incomes) {
+    vector<MoneyFlow> moneyFlows;
+    for(int i=0; i<incomes.size(); i++) {
+        MoneyFlow tempMoneyFlow(0);
+        tempMoneyFlow=incomes[i];
+        moneyFlows.push_back(tempMoneyFlow);
+    }
+    return moneyFlows;
+}
+
+Income& Income::operator = (const MoneyFlow &moneyFlow) {
+    id=moneyFlow.getId();
+    idOfOwnUser=moneyFlow.getIdOfOwnUser();
+    description=moneyFlow.getDescription();
+    amountOfMoney=moneyFlow.getAmountOfMoney();
+    setDate(moneyFlow.getDate());
+    return *this;
 }

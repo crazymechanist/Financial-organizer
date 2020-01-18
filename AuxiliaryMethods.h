@@ -22,6 +22,7 @@ static float stringToFloatConv(string number);
 static int coutAStringOccurInBString(string lookForString, string BaseString);
 static vector<string> parsingString(string baseString, string delimiter);
 static vector<int> stringArrToIntArrConv (vector<string> numbers);
+static double floatToDouble(const float fValue);
 };
 
 #endif

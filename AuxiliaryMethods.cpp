@@ -116,4 +116,11 @@ char AuxiliaryMethods::loadChar() {
     return character;
 }
 
+double AuxiliaryMethods::floatToDouble(float fValue){
+    char czDummy[30];
+    sprintf(czDummy,"%9.5f",fValue);
+    double dValue = strtod(czDummy,NULL);
+    return dValue;
+}
+
 
