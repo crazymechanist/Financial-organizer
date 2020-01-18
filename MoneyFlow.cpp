@@ -8,11 +8,11 @@ MoneyFlow::MoneyFlow(int id,int userId,string destription,float amountOfMoney,st
 }
 
 
-float MoneyFlow::getAmountOfMoney() {
+float MoneyFlow::getAmountOfMoney() const{
     return amountOfMoney;
 }
 
-string MoneyFlow::getDescription() {
+string MoneyFlow::getDescription() const{
     return description;
 }
 
@@ -37,7 +37,7 @@ void MoneyFlow::setId(int id) {
     this->id=id;
 }
 
-int MoneyFlow::getId() {
+int MoneyFlow::getId()const {
     return id;
 }
 
@@ -45,7 +45,7 @@ void MoneyFlow::setIdOfOwnUser(int userId) {
     idOfOwnUser=userId;
 }
 
-int MoneyFlow::getIdOfOwnUser() {
+int MoneyFlow::getIdOfOwnUser()const {
     return idOfOwnUser;
 }
 
@@ -81,7 +81,7 @@ void MoneyFlow::changeDate() {
     }
 }
 
-string MoneyFlow::getDate() {
+string MoneyFlow::getDate() const{
     return date.getDate();
 }
 

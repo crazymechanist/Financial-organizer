@@ -1,6 +1,6 @@
 #include "Expense.h"
 
-Expense::Expense(int id,int userId): MoneyFlow(id,userId, "Przychod") {
+Expense::Expense(int id,int userId,string descr,float amount,string date): MoneyFlow(id,userId,descr,amount,date) {
 
 }
 
@@ -61,3 +61,34 @@ void Expense::editExpense() {
     changeAmountOfMoney();
     changeDate();
 }
+
+vector<Expense> Expense::convMoneyFlowsToExpenses(const vector<MoneyFlow> &moneyFlows) {
+    vector<Expense> expenses;
+    for(int i=0; i<moneyFlows.size(); i++) {
+        Expense tempExpense(0);
+        tempExpense=moneyFlows[i];
+        expenses.push_back(tempExpense);
+    }
+    return expenses;
+}
+
+vector<MoneyFlow> Expense::convExpensesToMoneyFlows(const vector<Expense> &expenses) {
+    vector<MoneyFlow> moneyFlows;
+    for(int i=0; i<expenses.size(); i++) {
+        MoneyFlow tempMoneyFlow(0);
+        tempMoneyFlow=expenses[i];
+        moneyFlows.push_back(tempMoneyFlow);
+    }
+    return moneyFlows;
+}
+
+Expense& Expense::operator = (const MoneyFlow &moneyFlow) {
+    id=moneyFlow.getId();
+    idOfOwnUser=moneyFlow.getIdOfOwnUser();
+    description=moneyFlow.getDescription();
+    amountOfMoney=moneyFlow.getAmountOfMoney();
+    setDate(moneyFlow.getDate());
+    return *this;
+}
+
+

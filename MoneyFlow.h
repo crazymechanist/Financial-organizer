@@ -5,18 +5,19 @@
 #include "Date.h"
 
 class MoneyFlow {
-    int id;
+
 protected:
+    int id;
     int idOfOwnUser;
     float amountOfMoney;
     string description;
     Date date;
 public:
     MoneyFlow(int=0,int=0,string="",float=0,string="Today");
-    int getId();
-    int getIdOfOwnUser();
-    float getAmountOfMoney();
-    string getDescription();
+    int getId() const;
+    int getIdOfOwnUser() const;
+    float getAmountOfMoney() const;
+    string getDescription() const;
     void setId(int id);
     void setIdOfOwnUser(int userId);
     void setDate(string date);
@@ -25,7 +26,7 @@ public:
     void printMoneyFlow();
     void changeDate();
     void changeAmountOfMoney();
-    string getDate();
+    string getDate() const;
 };
 
 #endif

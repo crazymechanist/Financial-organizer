@@ -5,7 +5,7 @@
 #include <vector>
 #include "Income.h"
 #include "Expense.h"
-#include "ExpensesDataFile.h"
+#include "MoneyFlowDataFile.h"
 
 using namespace std;
 
@@ -13,7 +13,7 @@ class MoneyFlowManager {
     const int ID_OF_LOG_IN_USER;
     int lastIdIncomes;
     int lastIdExpenses;
-    ExpensesDataFile expensesDataFile;
+    MoneyFlowDatafile expensesDataFile;
     vector <Income> incomes;
     vector <Expense> expenses;
     void checkLastIds();
