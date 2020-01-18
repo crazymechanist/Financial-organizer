@@ -11,15 +11,11 @@ using namespace std;
 //        financialOrganizer.mainMenu();
 //    }
 //    return 0;
+
 //}
-//
+
 int main() {
-    User user(3,"Korwin","Mikke","J","Krol");
-    vector<User> users;
-    UsersDataFile usersDataFile("users.xml");
-//    usersDataFile.addData(user);
-//   usersDataFile.deleteData(user);
-//    usersDataFile.loadData();
-   usersDataFile.editData(user);
+    MoneyFlowManager moneyFlowManager(1);
     return 0;
 }
+

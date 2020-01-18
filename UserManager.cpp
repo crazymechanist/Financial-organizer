@@ -5,8 +5,9 @@ UserManager::UserManager():usersDataFile("users.xml") {
     idOfLogInUser=0;
 }
 
+
 void UserManager::registerUser() {
-    cout<<"REJESTRACJA UZYTKOWNIKA\n________________________\n\n";
+    cout<<"REJESTRACJA UZYTKOWNIKA\n________________________\n";
     int id=getIdOfNewUser();
     string login="", password="", name="", surname="";
     cout<<"Podaj login: ";
@@ -47,7 +48,7 @@ void UserManager::logOutUser() {
 }
 
 void UserManager::logInUser() {
-    cout<<"LOGOWANIE UZYTKOWNIKA\n________________________\n\n";
+    cout<<"LOGOWANIE UZYTKOWNIKA\n________________________\n";
     string login = "", password = "";
     int iter=0;
 
@@ -83,23 +84,21 @@ void UserManager::logInUser() {
 }
 
 void UserManager::changePasswordOfLogInUser() {
-    cout<<"ZMIANA HASLA ZALOGOWANEGO UZYTKOWNIKA\n________________________\n\n";
+    cout<<"ZMIANA HASLA ZALOGOWANEGO UZYTKOWNIKA\n________________________\n";
     string newPassword = "";
-    int iter=0;
     cout << "Podaj nowe haslo: ";
     newPassword = AuxiliaryMethods::loadLine();
-
-    while (iter != users.size()) {
-        if (users[iter].getId()== idOfLogInUser) {
-            users[iter].setPassword(newPassword);
-            cout << "Haslo konta "<<users[iter].getName()<<" "<< users[iter].getSurname()<<" zostalo zmienione." << endl << endl;
+    bool exitLoop=false;
+    for(int i=0; i<users.size(); i++) {
+        if (users[i].getId()== idOfLogInUser) {
+            users[i].setPassword(newPassword);
+            usersDataFile.editData(users[i]);
+            cout << "Haslo konta "<<users[i].getName()<<" "<< users[i].getSurname()<<" zostalo zmienione." << endl << endl;
             system("pause");
             system("cls");
-            iter= users.size();
+            i=users.size();
         }
-        iter++;
     }
-//    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
 
 int UserManager::getIdOfLogInUser() {

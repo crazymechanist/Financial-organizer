@@ -1,17 +1,18 @@
 #include "MoneyFlow.h"
 
-MoneyFlow::MoneyFlow(int id,string destription,float amountOfMoney,string date):date(date) {
+MoneyFlow::MoneyFlow(int id,int userId,string destription,float amountOfMoney,string date):date(date) {
+    setIdOfOwnUser(userId);
     setAmountOfMoney(amountOfMoney);
     setDescription(destription);
     setId(id);
 }
 
 
-float MoneyFlow::getAmountOfMoney() {
+float MoneyFlow::getAmountOfMoney() const{
     return amountOfMoney;
 }
 
-string MoneyFlow::getDescription() {
+string MoneyFlow::getDescription() const{
     return description;
 }
 
@@ -25,7 +26,7 @@ void MoneyFlow::setAmountOfMoney(float amountOfMoney) {
 }
 
 void MoneyFlow::setDate(string myDate) {
-    if(date.setDate(myDate)){ }
+    if(date.setDate(myDate)) { }
 }
 
 void MoneyFlow::setDescription(string description) {
@@ -36,8 +37,16 @@ void MoneyFlow::setId(int id) {
     this->id=id;
 }
 
-int MoneyFlow::getId() {
+int MoneyFlow::getId()const {
     return id;
+}
+
+void MoneyFlow::setIdOfOwnUser(int userId) {
+    idOfOwnUser=userId;
+}
+
+int MoneyFlow::getIdOfOwnUser()const {
+    return idOfOwnUser;
 }
 
 void MoneyFlow::printMoneyFlow() {
@@ -72,7 +81,7 @@ void MoneyFlow::changeDate() {
     }
 }
 
-string MoneyFlow::getDate() {
+string MoneyFlow::getDate() const{
     return date.getDate();
 }
 

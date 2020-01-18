@@ -1,6 +1,6 @@
 #include "Expense.h"
 
-Expense::Expense(int id):MoneyFlow(id, "Przychod") {
+Expense::Expense(int id,int userId,string descr,float amount,string date): MoneyFlow(id,userId,descr,amount,date) {
 
 }
 
@@ -12,6 +12,7 @@ void Expense::chooseDescrition() {
             <<"3. Rachunek za pr¹d"<<endl
             <<"4. Rachunek za mieszkanie"<<endl
             <<"5. Rachunek za telefon"<<endl
+
             <<"6. Jedzenie w restauracji"<<endl
             <<"9. Inny"<<endl
             <<"Wybor: ";
@@ -45,6 +46,7 @@ void Expense::chooseDescrition() {
         case '9':
             cout<<"Podaj opis: ";
             setDescription(AuxiliaryMethods::loadLine());
+            return;
             break;
         default:
             cout << endl << "Nie ma takiej opcji w menu." << endl;
@@ -60,3 +62,34 @@ void Expense::editExpense() {
     changeAmountOfMoney();
     changeDate();
 }
+
+vector<Expense> Expense::convMoneyFlowsToExpenses(const vector<MoneyFlow> &moneyFlows) {
+    vector<Expense> expenses;
+    for(int i=0; i<moneyFlows.size(); i++) {
+        Expense tempExpense(0);
+        tempExpense=moneyFlows[i];
+        expenses.push_back(tempExpense);
+    }
+    return expenses;
+}
+
+vector<MoneyFlow> Expense::convExpensesToMoneyFlows(const vector<Expense> &expenses) {
+    vector<MoneyFlow> moneyFlows;
+    for(int i=0; i<expenses.size(); i++) {
+        MoneyFlow tempMoneyFlow(0);
+        tempMoneyFlow=expenses[i];
+        moneyFlows.push_back(tempMoneyFlow);
+    }
+    return moneyFlows;
+}
+
+Expense& Expense::operator = (const MoneyFlow &moneyFlow) {
+    id=moneyFlow.getId();
+    idOfOwnUser=moneyFlow.getIdOfOwnUser();
+    description=moneyFlow.getDescription();
+    amountOfMoney=moneyFlow.getAmountOfMoney();
+    setDate(moneyFlow.getDate());
+    return *this;
+}
+
+
