@@ -30,7 +30,6 @@ class UserManager
     void logOutUser();
     void logInUser();
     void  changePasswordOfLogInUser();
-
 };
 
 #endif

@@ -8,11 +8,11 @@ MoneyFlow::MoneyFlow(int id,int userId,string destription,float amountOfMoney,st
 }
 
 
-float MoneyFlow::getAmountOfMoney() const{
+float MoneyFlow::getAmountOfMoney() const {
     return amountOfMoney;
 }
 
-string MoneyFlow::getDescription() const{
+string MoneyFlow::getDescription() const {
     return description;
 }
 
@@ -56,36 +56,14 @@ void MoneyFlow::printMoneyFlow() {
 }
 
 void MoneyFlow::changeDate() {
-    while(1) {
-        cout<<endl<<"Czy chcesz zmienic date? ("<<date.getDate()<<") (T/N)"<<endl;
-        char choice=AuxiliaryMethods::loadChar();
-        switch (choice) {
-        case 't':
-        case 'T':
-            cout<<endl<<"Podaj date w formacie RRRR-MM-DD: ";
-            while(!date.setDate(AuxiliaryMethods::loadLine()))     {
-                cout<<endl<<"Podaj date w poprawnym formacie RRRR-MM-DD \n(jezeli nie chcesz znianiac daty, pozostawa pole puste):";
-            }
-            return;
-            break;
-        case 'N':
-        case 'n':
-            return;
-            break;
-
-        default:
-            cout << endl << "Nie ma takiej opcji w menu." << endl;
-            system("pause");
-            break;
-        }
-    }
+    date.changeDate();
 }
 
-string MoneyFlow::getDateSign() const{
+string MoneyFlow::getDateSign() const {
     return date.getDate();
 }
 
-Date MoneyFlow::getDate() const{
+Date MoneyFlow::getDate() const {
     return date;
 }
 

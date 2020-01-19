@@ -36,7 +36,7 @@ public:
     bool setDate(string date);
 
     string getDate() const;
-
+    void changeDate();
     bool operator< (const Date &d1) const;
     bool operator> (const Date &d1) const;
     bool operator<= (const Date &d1) const;

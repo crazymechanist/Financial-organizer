@@ -1,18 +1,69 @@
 #include "FinancialOrganizer.h"
 
 FinancialOrganizer::FinancialOrganizer() {
+    moneyFlowManager=NULL;
 }
 
+FinancialOrganizer::~FinancialOrganizer() {
+    delete moneyFlowManager;
+    moneyFlowManager=NULL;
+}
 
 void FinancialOrganizer::registerUser() {
     userManager.registerUser();
 }
 
+void FinancialOrganizer::addExpense() {
+    moneyFlowManager->addExpense();
+}
+
+void FinancialOrganizer::addIncome() {
+    moneyFlowManager->addIncome();
+}
+
+void FinancialOrganizer::printBalanceOfCurrentMonth() {
+    cout << "Przeplywy z obecnego miesiaca" << endl;
+    cout << "---------------------------" << endl<< endl;
+    Date date("Today");
+    Date firstDate=date.firstDayOfCurrMonth();
+    Date secondDate=date.lastDayOfCurrMonth();
+    moneyFlowManager->printBalanceOfAnyPeriod(firstDate,secondDate);
+}
+
+void FinancialOrganizer::printBalanceOfLastMonth() {
+    cout << "Przeplywy z zeszlego miesiaca" << endl;
+    cout << "---------------------------" << endl<< endl;
+    Date date("Today");
+    Date firstDate=date.firstDayOfLastMonth();
+    Date secondDate=date.lastDayOfLastMonth();
+    moneyFlowManager->printBalanceOfAnyPeriod(firstDate,secondDate);
+}
+
+void FinancialOrganizer::printBalanceOfAnyPeriod() {
+    cout << "Przeplywy z dowolnego okresu" << endl;
+    cout << "---------------------------" << endl<< endl;
+    Date firstDate("Today");
+    firstDate=firstDate.firstDayOfCurrMonth();
+    Date secondDate("Today");
+    secondDate=secondDate.lastDayOfCurrMonth();
+    cout<<"Poczatkowa data: "<<firstDate.getDate()<<"\n";
+    firstDate.changeDate();
+    cout<<"\nKoncowa data: "<<secondDate.getDate()<<"\n";
+    secondDate.changeDate();
+    moneyFlowManager->printBalanceOfAnyPeriod(firstDate,secondDate);
+}
+
 void FinancialOrganizer::logOutUser() {
     userManager.logOutUser();
+    delete moneyFlowManager;
+    moneyFlowManager = NULL;
 }
 void FinancialOrganizer::logInUser() {
     userManager.logInUser();
+    int userID=userManager.getIdOfLogInUser();
+    if (userID != 0) {
+        moneyFlowManager = new MoneyFlowManager(userID);
+    }
 }
 
 void  FinancialOrganizer::changePasswordOfLogInUser() {
@@ -46,6 +97,26 @@ void  FinancialOrganizer::mainMenu() {
         showLogInUserMenu();
         choice=AuxiliaryMethods::loadChar();
         switch (choice) {
+        case '1':
+            system("cls");
+            addExpense();
+            break;
+        case '2':
+            system("cls");
+            addIncome();
+            break;
+        case '3':
+            system("cls");
+            printBalanceOfCurrentMonth();
+            break;
+        case '4':
+            system("cls");
+            printBalanceOfLastMonth();
+            break;
+        case '5':
+            system("cls");
+            printBalanceOfAnyPeriod();
+            break;
         case '8':
             system("cls");
             changePasswordOfLogInUser();

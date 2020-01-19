@@ -41,7 +41,7 @@ public:
     void addExpense();
     void sortIncomes();
     void sortExpenses();
-    void printBalanceOfAnotherPeriod(Date &firstDay, Date &lastDay);
+    void printBalanceOfAnyPeriod(Date &firstDay, Date &lastDay);
 
 };
 

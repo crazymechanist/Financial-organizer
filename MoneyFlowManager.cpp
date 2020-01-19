@@ -65,7 +65,7 @@ void MoneyFlowManager::sortExpenses() {
     sort(expenses.begin(),expenses.end(),comparatorExpense);
 }
 
-void MoneyFlowManager::printBalanceOfAnotherPeriod(Date &firstDate, Date &lastDate) {
+void MoneyFlowManager::printBalanceOfAnyPeriod(Date &firstDate, Date &lastDate) {
     if(firstDate<lastDate) {
         cout<<"PRZYCHODY: "<<endl
             <<"---------------------------------------";
@@ -91,6 +91,8 @@ void MoneyFlowManager::printBalanceOfAnotherPeriod(Date &firstDate, Date &lastDa
             <<"SALDO: "<<endl
             <<calculateBottomLine(firstDate,lastDate)<<" PLN"<<endl;
     }
+    system("pause");
+    system("cls");
 }
 
 

@@ -341,4 +341,30 @@ Date Date::lastDayOfLastMonth() {
 
 }
 
+void Date::changeDate() {
+    while(1) {
+        cout<<endl<<"Czy chcesz zmienic date? ("<<getDate()<<") (T/N)"<<endl;
+        char choice=AuxiliaryMethods::loadChar();
+        switch (choice) {
+        case 't':
+        case 'T':
+            cout<<endl<<"Podaj date w formacie RRRR-MM-DD: ";
+            while(!setDate(AuxiliaryMethods::loadLine()))     {
+                cout<<endl<<"Podaj date w poprawnym formacie RRRR-MM-DD \n(jezeli nie chcesz znianiac daty, pozostawa pole puste):";
+            }
+            return;
+            break;
+        case 'N':
+        case 'n':
+            return;
+            break;
+
+        default:
+            cout << endl << "Nie ma takiej opcji w menu." << endl;
+            system("pause");
+            break;
+        }
+    }
+}
+
 

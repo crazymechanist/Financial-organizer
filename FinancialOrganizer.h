@@ -12,17 +12,21 @@ using namespace std;
 class FinancialOrganizer {
     UserManager userManager;
     MoneyFlowManager *moneyFlowManager;
-public:
-    FinancialOrganizer();
     void registerUser();
     void logOutUser();
     void logInUser();
     void changePasswordOfLogInUser();
-    void mainMenu();
     void showLogInUserMenu();
     void showNonLogInUserMenu();
-
-
+    void printBalanceOfCurrentMonth();
+    void printBalanceOfLastMonth();
+    void printBalanceOfAnyPeriod();
+    void addExpense();
+    void addIncome();
+public:
+    void mainMenu();
+    FinancialOrganizer();
+    ~FinancialOrganizer();
 };
 
 #endif

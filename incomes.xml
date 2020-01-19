@@ -34,4 +34,11 @@
 <amount>1000</amount>
 <date>2020-1-19</date>
 </income>
+<income>
+<id>6</id>
+<userId>1</userId>
+<description>Z dzialalnosci gospodarczej</description>
+<amount>3000</amount>
+<date>2020-1-20</date>
+</income>
 </incomes>
