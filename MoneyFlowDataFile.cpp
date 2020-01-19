@@ -47,7 +47,7 @@ vector <string> MoneyFlowDatafile::dataToVector(MoneyFlow &expense) {
     addToVector(vec,AuxiliaryMethods::intToStringConv(expense.getIdOfOwnUser()));
     addToVector(vec,expense.getDescription());
     addToVector(vec,AuxiliaryMethods::floatToStringConv(expense.getAmountOfMoney()));
-    addToVector(vec,expense.getDate());
+    addToVector(vec,expense.getDateSign());
     return vec;
 }
 

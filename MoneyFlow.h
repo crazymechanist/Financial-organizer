@@ -26,7 +26,8 @@ public:
     void printMoneyFlow();
     void changeDate();
     void changeAmountOfMoney();
-    string getDate() const;
+    string getDateSign() const;
+    Date getDate() const;
 };
 
 #endif

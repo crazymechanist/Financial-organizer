@@ -307,19 +307,38 @@ int Date::convertDateToDays() const  {
     return days;
 }
 
-//void setDate
+Date Date::firstDayOfCurrMonth() {
+    Date myDate(year,month,1);
+    return myDate;
+}
 
-//int Date::getDay(){
-//    return day;
-//}
-//
-//int Date::getMonth(){
-//return month;
-//}
-//
-//int Date::getYear(){
-//return year;
-//}
-//
+Date Date::lastDayOfCurrMonth() {
+    Date myDate(year,month,howManyDaysInMonth(month,year));
+    return myDate;
+}
+
+Date Date::firstDayOfLastMonth() {
+    int month=0;
+    if(this->month=1) {
+        month=12;
+    } else {
+        month--;
+    }
+    Date myDate(year,month,1);
+    return myDate;
+}
+
+Date Date::lastDayOfLastMonth() {
+    int month=0;
+    if(this->month=1) {
+        month=12;
+        year--;
+    } else {
+        month--;
+    }
+    Date myDate(year,month,howManyDaysInMonth(month,year));
+    return myDate;
+
+}
 
 

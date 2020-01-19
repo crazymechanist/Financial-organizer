@@ -88,7 +88,7 @@ Expense& Expense::operator = (const MoneyFlow &moneyFlow) {
     idOfOwnUser=moneyFlow.getIdOfOwnUser();
     description=moneyFlow.getDescription();
     amountOfMoney=moneyFlow.getAmountOfMoney();
-    setDate(moneyFlow.getDate());
+    setDate(moneyFlow.getDateSign());
     return *this;
 }
 

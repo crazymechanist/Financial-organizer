@@ -49,9 +49,10 @@ public:
     Date& operator- (int daysDisp) const ;
     Date& operator+ (int daysDisp) const;
     Date& operator= (const Date &d1);
-
-
-
+    Date firstDayOfCurrMonth();
+    Date lastDayOfCurrMonth();
+    Date firstDayOfLastMonth();
+    Date lastDayOfLastMonth();
 };
 
 

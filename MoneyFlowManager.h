@@ -32,15 +32,16 @@ class MoneyFlowManager {
     vector <Income> incomes;
     vector <Expense> expenses;
     void checkLastIds();
-    double sumOfVect(vector<Expense> &vec);
-    double sumOfVect(vector<Income> &vec);
+    double sumOfIncomes(Date &firstDate, Date &lastDate);
+    double sumOfExpenses(Date &firstDate, Date &lastDate);
+    double calculateBottomLine(Date &firstDate, Date &lastDate);
 public:
     MoneyFlowManager(int=0);
-    double calculateBottomLine();
     void addIncome();
     void addExpense();
     void sortIncomes();
     void sortExpenses();
+    void printBalanceOfAnotherPeriod(Date &firstDay, Date &lastDay);
 
 };
 

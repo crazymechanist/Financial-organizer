@@ -16,6 +16,12 @@ using namespace std;
 
 int main() {
     MoneyFlowManager moneyFlowManager(1);
+    Date fDat("2019-11-11");
+    Date sDat("Today");
+    Date mDat;
+    mDat=sDat.firstDayOfLastMonth();
+    cout<<mDat.getDate();
+    moneyFlowManager.printBalanceOfAnotherPeriod(fDat,sDat);
     return 0;
 }
 

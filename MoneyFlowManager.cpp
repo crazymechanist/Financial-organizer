@@ -29,34 +29,68 @@ void MoneyFlowManager::checkLastIds() {
     lastIdIncomes=incomesDataFile.getLastMoneyFlowId();
 }
 
-double MoneyFlowManager::sumOfVect(vector<Expense> &vec) {
+double MoneyFlowManager::sumOfExpenses(Date &firstDate, Date &lastDate) {
     double sum=0;
-    for(int i=0; i<vec.size(); i++) {
-        sum+=AuxiliaryMethods::floatToDouble(vec[i].getAmountOfMoney() );
+    for(vector<Expense>::iterator itr=expenses.begin(); itr != expenses.end(); ++itr) {
+        if((itr->getDate()>= firstDate) &&
+                (itr->getDate() <= lastDate)) {
+            sum+=AuxiliaryMethods::floatToDouble(itr->getAmountOfMoney());
+        }
     }
     return sum;
 }
 
-double MoneyFlowManager::sumOfVect(vector<Income> &vec) {
+double MoneyFlowManager::sumOfIncomes(Date &firstDate, Date &lastDate) {
     double sum=0;
-    for(int i=0; i<vec.size(); i++) {
-        sum+=AuxiliaryMethods::floatToDouble(vec[i].getAmountOfMoney() );
+    for(vector<Income>::iterator itr=incomes.begin(); itr != incomes.end(); ++itr) {
+        if((itr->getDate()>= firstDate) &&
+                (itr->getDate() <= lastDate)) {
+            sum+=AuxiliaryMethods::floatToDouble(itr->getAmountOfMoney());
+        }
     }
     return sum;
 }
 
-double MoneyFlowManager::calculateBottomLine() {
-    double sumOfExpenses=sumOfVect(expenses);
-    double sumOfIncomes=sumOfVect(incomes);
-    return (sumOfIncomes-sumOfExpenses);
+double MoneyFlowManager::calculateBottomLine(Date &firstDate, Date &lastDate) {
+    double expensesSum=sumOfExpenses(firstDate, lastDate);
+    double incomesSum=sumOfIncomes(firstDate, lastDate);
+    return (incomesSum-expensesSum);
 }
 
 void MoneyFlowManager::sortIncomes() {
-   sort(incomes.begin(),incomes.end(),comparatorIncome);
+    sort(incomes.begin(),incomes.end(),comparatorIncome);
 }
 
 void MoneyFlowManager::sortExpenses() {
     sort(expenses.begin(),expenses.end(),comparatorExpense);
+}
+
+void MoneyFlowManager::printBalanceOfAnotherPeriod(Date &firstDate, Date &lastDate) {
+    if(firstDate<lastDate) {
+        cout<<"PRZYCHODY: "<<endl
+            <<"---------------------------------------";
+        for(vector<Income>::iterator itr=incomes.begin(); itr != incomes.end(); ++itr) {
+            if((itr->getDate()>= firstDate) &&
+                    (itr->getDate() <= lastDate)) {
+                cout<<endl;
+                itr->printMoneyFlow();
+                cout<<endl;
+            }
+        }
+        cout<<"WYDATKI: "<<endl
+            <<"---------------------------------------";
+        for(vector<Expense>::iterator itr=expenses.begin(); itr != expenses.end(); ++itr) {
+            if((itr->getDate()>= firstDate) &&
+                    (itr->getDate() <= lastDate)) {
+                cout<<endl;
+                itr->printMoneyFlow();
+                cout<<endl;
+            }
+        }
+        cout<<"---------------------------------------"<<endl
+            <<"SALDO: "<<endl
+            <<calculateBottomLine(firstDate,lastDate)<<" PLN"<<endl;
+    }
 }
 
 

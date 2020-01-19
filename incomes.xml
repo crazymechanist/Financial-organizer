@@ -27,4 +27,11 @@
 <amount>1000</amount>
 <date>2020-1-18</date>
 </income>
+<income>
+<id>5</id>
+<userId>1</userId>
+<description>Zaplata za sex</description>
+<amount>1000</amount>
+<date>2020-1-19</date>
+</income>
 </incomes>
