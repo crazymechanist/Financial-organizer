@@ -321,6 +321,7 @@ Date Date::firstDayOfLastMonth() {
     int month=0;
     if(this->month=1) {
         month=12;
+        year--;
     } else {
         month--;
     }

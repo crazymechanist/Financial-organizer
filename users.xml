@@ -6,18 +6,4 @@
 <name>Alicja</name>
 <surname>Z Krainy Czarow</surname>
 </user>
-<user>
-<id>2</id>
-<login>tomek</login>
-<password>tomek2</password>
-<name>Tomasz</name>
-<surname>Wilmowski</surname>
-</user>
-<user>
-<id>3</id>
-<login>grzegorz</login>
-<password>grzegorz1</password>
-<name>Grzegorz</name>
-<surname>Braun</surname>
-</user>
 </users>

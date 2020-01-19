@@ -4,62 +4,6 @@
 <userId>1</userId>
 <description>Zakupy jedzenie</description>
 <amount>100</amount>
-<date>2020-1-14</date>
-</expense>
-<expense>
-<id>2</id>
-<userId>1</userId>
-<description>Zakupy jedzenie</description>
-<amount>100</amount>
-<date>2020-1-18</date>
-</expense>
-<expense>
-<id>3</id>
-<userId>1</userId>
-<description>Transport</description>
-<amount>100</amount>
-<date>2019-12-29</date>
-</expense>
-<expense>
-<id>4</id>
-<userId>1</userId>
-<description>Rachunek za mieszkanie</description>
-<amount>100</amount>
-<date>2019-11-29</date>
-</expense>
-<expense>
-<id>5</id>
-<userId>1</userId>
-<description>Rachunek za telefon</description>
-<amount>100</amount>
-<date>2018-5-4</date>
-</expense>
-<expense>
-<id>6</id>
-<userId>1</userId>
-<description>Karma dla kota</description>
-<amount>100</amount>
-<date>2019-11-11</date>
-</expense>
-<expense>
-<id>7</id>
-<userId>1</userId>
-<description>Dzialo</description>
-<amount>100</amount>
-<date>2019-5-5</date>
-</expense>
-<expense>
-<id>8</id>
-<userId>1</userId>
-<description>Jedzenie w restauracji</description>
-<amount>100</amount>
-<date>2020-1-18</date>
-</expense>
-<expense>
-<id>9</id>
-<userId>1</userId>
-<description>Komputer</description>
-<amount>100</amount>
-<date>2019-11-11</date>
+<date>2019-12-12</date>
 </expense>
 </expenses>
