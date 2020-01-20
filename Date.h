@@ -36,7 +36,7 @@ public:
     bool setDate(string date);
 
     string getDate() const;
-
+    void changeDate();
     bool operator< (const Date &d1) const;
     bool operator> (const Date &d1) const;
     bool operator<= (const Date &d1) const;
@@ -49,9 +49,10 @@ public:
     Date& operator- (int daysDisp) const ;
     Date& operator+ (int daysDisp) const;
     Date& operator= (const Date &d1);
-
-
-
+    Date firstDayOfCurrMonth();
+    Date lastDayOfCurrMonth();
+    Date firstDayOfLastMonth();
+    Date lastDayOfLastMonth();
 };
 
 

@@ -307,19 +307,67 @@ int Date::convertDateToDays() const  {
     return days;
 }
 
-//void setDate
+Date Date::firstDayOfCurrMonth() {
+    Date myDate(year,month,1);
+    return myDate;
+}
 
-//int Date::getDay(){
-//    return day;
-//}
-//
-//int Date::getMonth(){
-//return month;
-//}
-//
-//int Date::getYear(){
-//return year;
-//}
-//
+Date Date::lastDayOfCurrMonth() {
+    Date myDate(year,month,howManyDaysInMonth(month,year));
+    return myDate;
+}
+
+Date Date::firstDayOfLastMonth() {
+    int month=0;
+    int year=this->year;
+    if(this->month=1) {
+        month=12;
+        year--;
+    } else {
+        month--;
+    }
+    Date myDate(year,month,1);
+    return myDate;
+}
+
+Date Date::lastDayOfLastMonth() {
+    int month=0;
+    int year=this->year;
+    if(this->month=1) {
+        month=12;
+        year--;
+    } else {
+        month--;
+    }
+    Date myDate(year,month,howManyDaysInMonth(month,year));
+    return myDate;
+
+}
+
+void Date::changeDate() {
+    while(1) {
+        cout<<endl<<"Czy chcesz zmienic date? ("<<getDate()<<") (T/N)"<<endl;
+        char choice=AuxiliaryMethods::loadChar();
+        switch (choice) {
+        case 't':
+        case 'T':
+            cout<<endl<<"Podaj date w formacie RRRR-MM-DD: ";
+            while(!setDate(AuxiliaryMethods::loadLine()))     {
+                cout<<endl<<"Podaj date w poprawnym formacie RRRR-MM-DD \n(jezeli nie chcesz znianiac daty, pozostawa pole puste):";
+            }
+            return;
+            break;
+        case 'N':
+        case 'n':
+            return;
+            break;
+
+        default:
+            cout << endl << "Nie ma takiej opcji w menu." << endl;
+            system("pause");
+            break;
+        }
+    }
+}
 
 

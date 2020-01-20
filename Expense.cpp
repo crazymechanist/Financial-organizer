@@ -28,7 +28,7 @@ void Expense::chooseDescrition() {
             return;
             break;
         case '3':
-            setDescription("Rachunek za pr¹d");
+            setDescription("Rachunek za prad");
             return;
             break;
         case '4':
@@ -88,7 +88,7 @@ Expense& Expense::operator = (const MoneyFlow &moneyFlow) {
     idOfOwnUser=moneyFlow.getIdOfOwnUser();
     description=moneyFlow.getDescription();
     amountOfMoney=moneyFlow.getAmountOfMoney();
-    setDate(moneyFlow.getDate());
+    setDate(moneyFlow.getDateSign());
     return *this;
 }
 
