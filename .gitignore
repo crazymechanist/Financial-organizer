@@ -1,6 +1,7 @@
 bin/
 expenses.xml
 users.xml
+in.txt
 incomes.xml
 obj/
 plany/
