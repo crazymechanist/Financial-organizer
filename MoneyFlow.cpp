@@ -50,9 +50,10 @@ int MoneyFlow::getIdOfOwnUser()const {
 }
 
 void MoneyFlow::printMoneyFlow() {
+    cout<<description<<endl;
     cout<<"Data powstania przeplywu pienieznego: "<<date.getDate()<<endl;
     cout<<"Kwota przeplywu pienieznego: "<<amountOfMoney<<" PLN"<<endl;
-    cout<<"Opis: "<<description<<endl;
+
 }
 
 void MoneyFlow::changeDate() {

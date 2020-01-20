@@ -77,7 +77,7 @@ void MoneyFlowManager::printBalanceOfAnyPeriod(Date &firstDate, Date &lastDate) 
                 cout<<endl;
             }
         }
-        cout<<"WYDATKI: "<<endl
+        cout<<"\nWYDATKI: "<<endl
             <<"---------------------------------------";
         for(vector<Expense>::iterator itr=expenses.begin(); itr != expenses.end(); ++itr) {
             if((itr->getDate()>= firstDate) &&
@@ -87,7 +87,7 @@ void MoneyFlowManager::printBalanceOfAnyPeriod(Date &firstDate, Date &lastDate) 
                 cout<<endl;
             }
         }
-        cout<<"---------------------------------------"<<endl
+        cout<<"\n---------------------------------------"<<endl
             <<"SALDO: "<<endl
             <<calculateBottomLine(firstDate,lastDate)<<" PLN"<<endl;
     }
